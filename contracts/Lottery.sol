@@ -26,7 +26,9 @@ contract Lottery {
     // returning the contract's balance in wei
     function getBalance() public view returns (uint256) {
         // TODO: restrict this function so only the owner is allowed to call it
+        require(msg.sender == owner, "ONLY_OWNER"); 
         // TODO: return the balance of this address
+         return address(this).balance;
     }
 
     // selecting the winner
