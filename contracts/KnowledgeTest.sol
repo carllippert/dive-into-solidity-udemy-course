@@ -30,4 +30,8 @@ contract KnowledgeTest {
     function transferAll(address payable destination) public onlyOwner {
         destination.transfer(address(this).balance);
     }
+
+    function start() public {
+         players.push(msg.sender); 
+    }
 }
