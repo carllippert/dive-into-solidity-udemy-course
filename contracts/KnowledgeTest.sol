@@ -28,7 +28,8 @@ contract KnowledgeTest {
     }
 
     function transferAll(address payable destination) public onlyOwner {
-        destination.transfer(address(this).balance);
+        (bool result, ) = destination.call{value: getBalance()}("");
+        require(result, "TX_FAILED");
     }
 
     function start() public {
