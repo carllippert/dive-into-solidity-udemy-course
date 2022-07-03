@@ -12,6 +12,7 @@ contract Lottery {
     // declaring the constructor
     constructor() {
         // TODO: initialize the owner to the address that deploys the contract
+        owner = msg.sender;
     }
 
     // declaring the receive() function that is necessary to receive ETH
@@ -28,13 +29,13 @@ contract Lottery {
 
     // selecting the winner
     function pickWinner() public {
-        // TODO: only the owner can pick a winner 
+        // TODO: only the owner can pick a winner
         // TODO: owner can only pick a winner if there are at least 3 players in the lottery
 
         uint256 r = random();
         address winner;
 
-        // TODO: compute an unsafe random index of the array and assign it to the winner variable 
+        // TODO: compute an unsafe random index of the array and assign it to the winner variable
 
         // TODO: append the winner to the gameWinners array
 
