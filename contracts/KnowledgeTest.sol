@@ -32,6 +32,14 @@ contract KnowledgeTest {
     }
 
     function start() public {
-         players.push(msg.sender); 
+        players.push(msg.sender);
+    }
+
+    function concatenate(string memory s1, string memory s2)
+        public
+        pure
+        returns (string memory)
+    {
+        return string(abi.encodePacked(s1, s2));
     }
 }
