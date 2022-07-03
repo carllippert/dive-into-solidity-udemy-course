@@ -26,26 +26,33 @@ contract Lottery {
     // returning the contract's balance in wei
     function getBalance() public view returns (uint256) {
         // TODO: restrict this function so only the owner is allowed to call it
-        require(msg.sender == owner, "ONLY_OWNER"); 
+        require(msg.sender == owner, "ONLY_OWNER");
         // TODO: return the balance of this address
-         return address(this).balance;
+        return address(this).balance;
     }
 
     // selecting the winner
     function pickWinner() public {
         // TODO: only the owner can pick a winner
+        require(msg.sender == owner, "ONLY_OWNER"); 
         // TODO: owner can only pick a winner if there are at least 3 players in the lottery
+        require(players.length >= 3, "NOT_ENOUGH_PLAYERS"); 
 
         uint256 r = random();
         address winner;
 
         // TODO: compute an unsafe random index of the array and assign it to the winner variable
+        uint256 unsafe_index = r % players.length; 
+        winner = players[unsafe_index]; 
 
         // TODO: append the winner to the gameWinners array
+        gameWinners.push(winner); 
 
         // TODO: reset the lottery for the next round
-
+        delete players; 
         // TODO: transfer the entire contract's balance to the winner
+        (bool result, ) = winner.call{value: getBalance()}("");
+        require(result, "TX_FAILED");
     }
 
     // helper function that returns a big random integer
