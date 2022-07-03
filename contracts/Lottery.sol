@@ -18,7 +18,9 @@ contract Lottery {
     // declaring the receive() function that is necessary to receive ETH
     receive() external payable {
         // TODO: require each player to send exactly 0.1 ETH
+        require(msg.value >= 0.1 ether);
         // TODO: append the new player to the players array
+        players.push(msg.sender);
     }
 
     // returning the contract's balance in wei
