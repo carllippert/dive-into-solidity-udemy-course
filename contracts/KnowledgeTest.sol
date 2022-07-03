@@ -11,8 +11,8 @@ contract KnowledgeTest {
         owner = msg.sender; 
     }
 
-    function changeTokens() public view {
-        string[] memory t = tokens;
+    function changeTokens() public {
+        string[] storage t = tokens;
         t[0] = "VET";
     }
 }
