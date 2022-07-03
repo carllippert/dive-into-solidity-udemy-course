@@ -5,6 +5,7 @@ pragma solidity >=0.5.0 <0.9.0;
 contract KnowledgeTest {
     string[] public tokens = ["BTC", "ETH"];
     address[] public players;
+    address public owner; 
 
     function changeTokens() public view {
         string[] memory t = tokens;
