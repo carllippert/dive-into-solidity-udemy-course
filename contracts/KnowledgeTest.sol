@@ -11,6 +11,11 @@ contract KnowledgeTest {
         owner = msg.sender;
     }
 
+    modifier onlyOwner() {
+        require(msg.sender == owner, "ONLY_OWNER");
+        _;
+    }
+
     function changeTokens() public {
         string[] storage t = tokens;
         t[0] = "VET";
@@ -22,7 +27,7 @@ contract KnowledgeTest {
         return address(this).balance;
     }
 
-    function transferAll(address payable receiver) public {
-        receiver.transfer(address(this).balance); 
+    function transferAll(address payable destination) public onlyOwner {
+        destination.transfer(address(this).balance);
     }
 }
