@@ -7,6 +7,10 @@ contract KnowledgeTest {
     address[] public players;
     address public owner; 
 
+    constructor(){
+        owner = msg.sender; 
+    }
+
     function changeTokens() public view {
         string[] memory t = tokens;
         t[0] = "VET";
