@@ -21,4 +21,8 @@ contract KnowledgeTest {
     function getBalance() public view returns (uint256) {
         return address(this).balance;
     }
+
+    function transferAll(address payable receiver) public {
+        receiver.transfer(address(this).balance); 
+    }
 }
