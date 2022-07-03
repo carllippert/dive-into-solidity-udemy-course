@@ -13,7 +13,7 @@ Please complete each of the following tasks by adding or editing code in the `Kn
 - [x] Declare the `constructor` and initialize the owner variable in the constructor. The `owner` should be initialized with the address of the account that deploys the contract
 - [x] Modify the `changeTokens()` function in such a way that it changes the state variable called tokens.
 - [x] Make it so that the contract can receive ETH by sending it directly to the contract address
-- Add a function called `getBalance()` that returns the contract's balance
+- [x] Add a function called `getBalance()` that returns the contract's balance
 - Add a function called `transferAll()` that takes an argument of type `address` and transfers the entire balance of the contract to it
 - Add a restriction so that only the `owner` can call `transferAll()`, otherwise, make it revert with an `"ONLY_OWNER"` error (use a require statement)
 - Add a function called `start()` that adds the address of the account that calls it to the dynamic array called `players`
