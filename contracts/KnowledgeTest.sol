@@ -15,4 +15,8 @@ contract KnowledgeTest {
         string[] storage t = tokens;
         t[0] = "VET";
     }
+
+    receive() payable external {
+
+    }
 }
